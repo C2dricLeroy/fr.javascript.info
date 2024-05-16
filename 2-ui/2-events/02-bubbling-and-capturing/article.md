@@ -1,8 +1,8 @@
-# Bubbling and capturing
+# Propagation et capture
 
-Let's start with an example.
+Débutons avec un exemple.
 
-This handler is assigned to `<div>`, but also runs if you click any nested tag like `<em>` or `<code>`:
+Ce gestionnaire est associé à la balise `<div>`, mais il s'éxécute également si l'on clique sur n'importe quelle balise imbriquée comme `<em>` ou `<code>`:
 
 ```html autorun height=60
 <div onclick="alert('The handler!')">
@@ -10,15 +10,15 @@ This handler is assigned to `<div>`, but also runs if you click any nested tag l
 </div>
 ```
 
-Isn't it a bit strange? Why does the handler on `<div>` run if the actual click was on `<em>`?
+N'est-ce pas un comportement étrange ? Pourquoi le gestionnaire sur `<div>` s'éxécute si le clic est sur `<em>`?
 
-## Bubbling
+## Propagation (ascendante)
 
-The bubbling principle is simple.
+Le principe de la propagation est simple.
 
-**When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors.**
+**Lorsqu'un événement survient sur un élément, il déclenche d'abord l'éxécution des gestionnaires sur cet élément, puis son élément parent, puis remonte le chemin jusqu'à d'autres ancêtres.**
 
-Let's say we have 3 nested elements `FORM > DIV > P` with a handler on each of them:
+Disons que nous avons 3 éléments imbriqués FORM > DIV > P avec un gestionnaire sur chacun d'eux:
 
 ```html run autorun
 <style>
